@@ -6,10 +6,12 @@ Notes for R codes for manuscript "**Single-cell multiomics reveals increased pla
 - script_process_scRNA_single_sample.R  -- process each sample from cellranger output
 - integrate_18MLLr_scRNA.R  -- integrate scRNA-Seq data for all patient samples
 - integrate_hd_scRNA.R  -- integrate scRNA-Seq data for all healthy donor samples
+- integrate_18MLLr_scRNA_normalCells.R  -- integrate normal cells from scRNA-Seq data for all patient samples
 
 ## Process/integrate scATAC-Seq data
 - integrate_18MLLr_scATAC.R  -- integrate scRNA-Seq data for all patient samples
 - integrate_hd_scATAC.R -- integrate scATAC-Seq data for all healthy donor samples
+- integrate_18MLLr_scATAC_normalCells.R  -- integrate normal cells from scATAC-Seq data for all patient samples
 
 ## Label transfering 
 - transfer_lable.R -- Label transfering form scRNA-Seq data to scATAC-Seq data to annotate HD scATAC-Seq data
