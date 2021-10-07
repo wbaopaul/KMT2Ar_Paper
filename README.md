@@ -1,6 +1,6 @@
 # KMT2A-r Leukemia Paper
 
-Notes for R codes for manuscript "**Single-cell multiomics reveals increased plasticity, resistant populations and stem-cell-like blasts in KMT2A-rearranged leukemia**"
+Descroption of R codes used in generating manuscript "**Single-cell multiomics reveals increased plasticity, resistant populations and stem-cell-like blasts in KMT2A-rearranged leukemia**". The codes are organized into the following categories:
 
 ## Process/integrate scRNA-Seq data
 - script_process_scRNA_single_sample.R  -- process each sample from cellranger output
