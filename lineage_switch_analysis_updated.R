@@ -94,12 +94,11 @@ rm(seurat.atac)
 
 getPalette = colorRampPalette(brewer.pal(9, "Paired"))
 color_sample = getPalette(18)
-names(color_sample) = c( 'MLLr876533', 'MLLr882304', 'MLLr875706',
-                         'MLLr1154', 'MLLr870684', 'MLLr879583',
-                         'MLLr876545', 'MLLr874013', 'MLLr879440',
-                         'MLLr878289', 'MLLr871427', 'MLLr875703',
-                         'MLLr877476', 'MLLr881823', 'MLLr877780',
-                         'MLLr879339', 'MLLr878501', 'MLLr878516')
+names(color_sample) = c( "PAYWJZ", "PAZGKI", "PAYUZM", "1154",  
+                         "PAYKGI", "PAZBSZ", "PAYWKL", "PAYSBA", 
+                         "PAZBLA", "PAYZLC", "PAYLNH", "PAYUZJ", 
+                         "PAYYBG", "PAZFPH", "PAYYNY", "PAZBGV",
+                         "PAYZVY", "PAYZWN ")
 
 b.types = c('CLP', 'Pre-pro-B', 'Pro-B',
             'Pre-B', 'Immature-B', 'Mature-B', 'Plasma-B')

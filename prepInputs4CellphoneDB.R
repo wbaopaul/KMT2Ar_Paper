@@ -11,13 +11,12 @@ mllr_ann = data.table(seurat.mllr@meta.data, keep.rownames = T, stringsAsFactors
 sampleNames = unique(mllr_ann$sample)
 
 table(mllr_ann[Ctype0 == 'Progenitors']$sample)
-progenitor.g <- c('MLLr879440', 'MLLr875703', 'MLLr871427',
-                   'MLLr1154', 'MLLr876545', 'MLLr870684', 
-                  'MLLr875706', 'MLLr874013', 'MLLr882304')
-younger.g <-  c('MLLr876533', 'MLLr882304', 'MLLr875706',
-                'MLLr1154', 'MLLr870684', 'MLLr879583',
-                'MLLr876545', 'MLLr874013', 'MLLr879440',
-                'MLLr878289', 'MLLr871427')
+progenitor.g <- c('PAZBLA', 'PAYUZJ', 'PAYLNH',
+                  '1154', 'PAYWKL', 'PAYKGI', 
+                  'PAYUZM', 'PAYSBA', 'PAZGKI')
+younger.g <-  c("PAYWJZ", "PAZGKI", "PAYUZM", "1154",  
+                "PAYKGI", "PAZBSZ", "PAYWKL", "PAYSBA", 
+                "PAZBLA", "PAYZLC", "PAYLNH")
 
 ## < pool input data into 4 groups ####
 mllr_ann = subset(mllr_ann, Ctype_Stage %notin% c('T-like', 'NK-like', 'MEP-like', 'doublets',

@@ -8,7 +8,7 @@ source('scDataAnalysis_Utilities.R')
 Add_fusionInf2Seurat <- function(sampleName, seurat.rna, nmismatch = 0,
                                  dtype = 'both'){
   sampleName1 = sampleName
-  if(sampleName %in% c('MLLr879440', 'MLLr871427', 'MLLr875703')) 
+  if(sampleName %in% c('PAZBLA', 'PAYLNH', 'PAYUZJ')) 
     sampleName1 = paste0(sampleName, '_Redo')
   
   if(sampleName %in% c('HD2111_CD34', 'HD2689_Live'))
@@ -29,7 +29,7 @@ Add_fusionInf2Seurat <- function(sampleName, seurat.rna, nmismatch = 0,
   n0 = nrow(long.res)
   
   ## filtered out reads that are not map2 KMT2A PCR region
-  if(sampleName == 'MLLr870684') return(seurat.rna)
+  if(sampleName == 'PAYKGI') return(seurat.rna)
   reads.pcr = fread(paste0('MetaData/scRNA/LongRead/', sampleName, '_alignqc_reads2PCR.txt'))
   long.res = long.res[readname %in% reads.pcr$readname, ]
   message(paste0(round(nrow(long.res)/n0 * 100, 1), '% reads in PCR!'))
@@ -121,7 +121,7 @@ Add_fusionInf2Seurat <- function(sampleName, seurat.rna, nmismatch = 0,
 Add_wtInf2Seurat <- function(sampleName, seurat.rna, nmismatch = 0,
                                  dtype = 'both'){
   sampleName1 = sampleName
-  if(sampleName %in% c('MLLr879440', 'MLLr871427', 'MLLr875703')) 
+  if(sampleName %in% c('PAZBLA', 'PAYLNH', 'PAYUZJ')) 
     sampleName1 = paste0(sampleName, '_Redo')
   if(sampleName %in% c('HD2111_CD34', 'HD2689_Live'))
     sampleName1 = unlist(strsplit(sampleName, '_'))[1]
@@ -142,7 +142,7 @@ Add_wtInf2Seurat <- function(sampleName, seurat.rna, nmismatch = 0,
   
   n0 = nrow(long.res)
   ## filtered out reads that are not map2 KMT2A PCR region
-  if(sampleName == 'MLLr870684') return(seurat.rna)
+  if(sampleName == 'PAYKGI') return(seurat.rna)
   reads.pcr = fread(paste0('MetaData/scRNA/LongRead/', sampleName, '_alignqc_reads2PCR.txt'))
   long.res = long.res[readname %in% reads.pcr$readname, ]
   #message(paste0(round(nrow(long.res)/n0 * 100, 1), '% reads in PCR!'))
@@ -292,7 +292,7 @@ wtRate_HD <- function(sampleName,  dtype = 'both'){
   #long.res = long.res[sec_mismatch > 4]
   
   ## filtered out reads that are not map2 KMT2A PCR region
-  if(sampleName == 'MLLr870684') return(seurat.rna)
+  if(sampleName == 'PAYKGI') return(seurat.rna)
   reads.pcr = fread(paste0('MetaData/scRNA/LongRead/', sampleName, '_alignqc_reads2PCR.txt'))
   long.res = long.res[readname %in% reads.pcr$readname, ]
   message(paste0(round(nrow(long.res)/n0 * 100, 1), '% reads in PCR!'))
@@ -398,11 +398,11 @@ plot_detectionRate <- function(mdata, do.test = F, test.bg = 'Mature_B',
 seurat.rna = readRDS(file = 'Seurat_Objects/scRNA/seurat_regrCycleHeatShockGenes_pool_18Infants_scRNA_VEG3000_updated.rds' )
 
 
-sampleNames = c("MLLr877476", "MLLr879583", "MLLr881823", "MLLr882304",
-                "MLLr876545", "MLLr877780", "MLLr878516", "MLLr875706",
-                "MLLr1154",   "MLLr874013", "MLLr876533", "MLLr879440",
-                "MLLr870684", "MLLr871427", "MLLr875703", "MLLr878289",
-                "MLLr878501", "MLLr879339")
+sampleNames = c("PAYYBG", "PAZBSZ", "PAZFPH", "PAZGKI",
+                "PAYWKL", "PAYYNY", "PAYZWN ", "PAYUZM",
+                "154",   "PAYSBA", "PAYWJZ", "PAZBLA",
+                "PAYKGI", "PAYLNH", "PAYUZJ", "PAYZLC",
+                "PAYZVY", "PAZBGV")
 
 fusionParters = c('MLLT1', 'MLLT1', 'MLLT1', 'MLLT3', 
                   'AFF1', 'AFF1', 'AFF1', 'MLLT10', 
@@ -491,7 +491,7 @@ ggplot(hdata, aes(x=sample, y=perc, fill = read.type)) +
 mdata.all = readRDS(file='MetaData/scRNA/LongRead/mdata_with_longread_inf.rds')
 mdata.all$Ctype0[mdata.all$Ctype0 %in% c('T', 'NKT')] = 'T/NK'
 mdata.all[, 'nLongread_str' := detected_nfusion + detected_nwt]
-mdata.all = mdata.all[sample != 'MLLr882304']
+mdata.all = mdata.all[sample != 'PAZGKI']
 mdata.working = mdata.all[nLongread_str > 0]
 #mdata.working = mdata.all[nLongread > 0]
 res1 = plot_detectionRate(mdata.working, do.test = F, type.read = 'fusion')
@@ -567,11 +567,11 @@ hdata = subset(hdata, select = c(Ctype, rate, read.type))
 mdata.all = readRDS(file='MetaData/scRNA/LongRead/mdata_with_longread_inf.rds')
 mdata.all$Ctype0[mdata.all$Ctype0 %in% c('T', 'NKT')] = 'T/NK'
 mdata.all[, 'nLongread_str' := detected_nfusion + detected_nwt]
-mdata.all = mdata.all[sample != 'MLLr882304']
+mdata.all = mdata.all[sample != 'PAZGKI']
 
-progenitor.g <- c('MLLr879440', 'MLLr875703', 'MLLr871427',
-                  'MLLr1154', 'MLLr876545', 'MLLr870684', 
-                  'MLLr875706', 'MLLr874013', 'MLLr882304')
+progenitor.g <- c('PAZBLA', 'PAYUZJ', 'PAYLNH',
+                  '1154', 'PAYWKL', 'PAYKGI', 
+                  'PAYUZM', 'PAYSBA', 'PAZGKI')
 nprog.g = setdiff(sampleNames, progenitor.g)
 
 mdata.working = mdata.all

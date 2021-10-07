@@ -46,12 +46,12 @@ dir2 = '/mnt/isilon/tan_lab/chenc6/MLLr_Project/snmC/batch_2/working_dir/'
 dir3 = '/mnt/isilon/tan_lab/chenc6/MLLr_Project/snmC/batch_3/working_dir/'
 
 mtx.snmc = list()
-mtx.snmc[['MLLr1154']] = as.matrix(readRDS(paste0(dir0, 'met_mat.genes_2kb.rds')))
+mtx.snmc[['1154']] = as.matrix(readRDS(paste0(dir0, 'met_mat.genes_2kb.rds')))
 
 for(idir in c(dir1, dir2, dir3)){
   sampleIDs = dir(idir)
   for(sampleID0 in sampleIDs){
-    sampleName = paste0('MLLr', sampleID0)
+    sampleName = paste0( sampleID0)
     tmp = readRDS(paste0(idir, sampleID0, '/matrices/met_mat.genes_2kb.rds'))
     mtx.snmc[[sampleName]] <- tmp
   }
@@ -66,9 +66,9 @@ seurat.rna = readRDS('Seurat_Objects/scRNA/seurat_regrCycleHeatShockGenes_pool_1
 mtx.comb = mtx.comb[rownames(mtx.comb) %in% rownames(seurat.rna), ]
 
 batches = rep('batch3', length(samples))
-batches[samples == 'MLLr1154'] = 'Pilot'
-batches[samples %in% c('MLLr877476', 'MLLr878516', 'MLLr882304')] = 'batch1'
-batches[samples %in% c('MLLr874013', 'MLLr875706', 'MLLr879583')] = 'batch2'
+batches[samples == '1154'] = 'Pilot'
+batches[samples %in% c('PAYYBG', 'PAYZWN', 'PAZGKI')] = 'batch1'
+batches[samples %in% c('PAYSBA', 'PAYUZM', 'PAZBSZ')] = 'batch2'
 
 mtx.imputed = impute_mtx(mtx.comb)
 seurat.snmc = CreateSeuratObject(1 - log2(mtx.imputed+0.5), assay = 'snmc', 

@@ -722,12 +722,11 @@ cls = data.table('barcode' = c(ann.hd[Ctype == 'HSPC']$sample_cell,
                                rep('HSPC1', nrow(ann.hspc1))),
                   'sample' = c(rep('HD', nrow(ann.hd[Ctype == 'HSPC'])),
                                ann.hspc1$sample))
-ordered.sample = c('HD', 'MLLr876533', 'MLLr882304', 'MLLr875706',
-                   'MLLr1154', 'MLLr870684', 'MLLr879583',
-                   'MLLr876545', 'MLLr874013', 'MLLr879440',
-                   'MLLr878289', 'MLLr871427', 'MLLr875703',
-                   'MLLr877476', 'MLLr881823', 'MLLr877780',
-                   'MLLr879339', 'MLLr878501', 'MLLr878516')
+ordered.sample = c('HD', "PAYWJZ", "PAZGKI", "PAYUZM", "1154",  
+                   "PAYKGI", "PAZBSZ", "PAYWKL", "PAYSBA", 
+                   "PAZBLA", "PAYZLC", "PAYLNH", "PAYUZJ", 
+                   "PAYYBG", "PAZFPH", "PAYYNY", "PAZBGV",
+                   "PAYZVY", "PAYZWN ")
 ordered.clusters = c('HSPC', 'HSPC1')
 hspc.diff[, 'delta' := -1*(mean1 - mean0)/mean1]
 setkey(hspc.diff, cluster1, delta)
@@ -834,12 +833,11 @@ tf.mllr.sele = tf.mllr.sele[order(-delta), ]
 cls = cls[cluster != 'pDC']
 
 
-ordered.sample = c('MLLr876533', 'MLLr882304', 'MLLr875706',
-                   'MLLr1154', 'MLLr870684', 'MLLr879583',
-                   'MLLr876545', 'MLLr874013', 'MLLr879440',
-                   'MLLr878289', 'MLLr871427', 'MLLr875703',
-                   'MLLr877476', 'MLLr881823', 'MLLr877780',
-                   'MLLr879339', 'MLLr878501', 'MLLr878516')
+ordered.sample = c("PAYWJZ", "PAZGKI", "PAYUZM", "1154",  
+                   "PAYKGI", "PAZBSZ", "PAYWKL", "PAYSBA", 
+                   "PAZBLA", "PAYZLC", "PAYLNH", "PAYUZJ", 
+                   "PAYYBG", "PAZFPH", "PAYYNY", "PAZBGV",
+                   "PAYZVY", "PAYZWN ")
 
 ph <- plot_enrich_tf2(tf.mllr.sele$feature, zscore.mllr,
                       bc_clusters = cls,
@@ -1156,10 +1154,9 @@ cnames = sapply(cnames, function(x) gsub('MLL_', 'MLLr', x))
 colnames(dscore.mllr) = cnames
 colnames(zscore.mllr) = cnames
 
-younger.g <-  c('MLLr876533', 'MLLr882304', 'MLLr875706',
-                'MLLr1154', 'MLLr870684', 'MLLr879583',
-                'MLLr876545', 'MLLr874013', 'MLLr879440',
-                'MLLr878289', 'MLLr871427')
+younger.g <-  c("PAYWJZ", "PAZGKI", "PAYUZM", "1154",  
+                "PAYKGI", "PAZBSZ", "PAYWKL", "PAYSBA", 
+                "PAZBLA", "PAYZLC", "PAYLNH")
 ann.mllr$Age_Group = ifelse(ann.mllr$sample %in% younger.g, 'Young', 'Old')
 ann.mllr$projCtype[ann.mllr$projCtype %in% c('HSPC-like', 'LMPP-like',
                                                            'CLP-like')] <- 'Early-Prog-like'
@@ -1285,10 +1282,7 @@ cnames = sapply(cnames, function(x) gsub('MLL_', 'MLLr', x))
 colnames(dscore.mllr) = cnames
 colnames(zscore.mllr) = cnames
 
-younger.g <-  c('MLLr876533', 'MLLr882304', 'MLLr875706',
-                'MLLr1154', 'MLLr870684', 'MLLr879583',
-                'MLLr876545', 'MLLr874013', 'MLLr879440',
-                'MLLr878289', 'MLLr871427')
+
 ann.mllr$Age_Group = ifelse(ann.mllr$sample %in% younger.g, 'Young', 'Old')
 ann.mllr$projCtype[ann.mllr$projCtype %in% c('HSPC-like', 'LMPP-like',
                                              'CLP-like')] <- 'Early-Prog-like'

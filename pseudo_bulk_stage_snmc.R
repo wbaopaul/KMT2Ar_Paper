@@ -44,10 +44,9 @@ sourceCpp(code = '
 
 
 ## 0. prepare cell barcodes by stage and age ####
-younger_g <-  c('MLLr876533', 'MLLr882304', 'MLLr875706',
-                'MLLr1154', 'MLLr870684', 'MLLr879583',
-                'MLLr876545', 'MLLr874013', 'MLLr879440',
-                'MLLr878289', 'MLLr871427')
+younger_g <-  c("PAYWJZ", "PAZGKI", "PAYUZM", "1154",  
+                "PAYKGI", "PAZBSZ", "PAYWKL", "PAYSBA", 
+                "PAZBLA", "PAYZLC", "PAYLNH")
 
 final_matching = readRDS('MetaData/snmC/cell_coembed_snmc_gene_body_2kb_referenceATAC.rds')
 final_matching$projCtype_merge = final_matching$projCtype

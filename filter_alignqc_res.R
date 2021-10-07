@@ -3,7 +3,7 @@ source('scDataAnalysis_Utilities.R')
 score.thr = 2
 
 ## for AF9 (MLLT3) ####
-for(sampleName in c('MLLr1154', 'MLLr882304', 'MLLr879339')){
+for(sampleName in c('1154', 'PAZGKI', 'PAZBGV')){
   dd = fread(paste0('AlignQC/Chimera_Output/', sampleName, '_chimera.bed.gz'), 
              skip = 1)
   names(dd)[c(1:4, 10)] = c('chr', 'start', 'end', 'readname', 'score')
@@ -27,7 +27,7 @@ for(sampleName in c('MLLr1154', 'MLLr882304', 'MLLr879339')){
 
 
 ## for AF4 ####
-for(sampleName in c('MLLr876545', 'MLLr877780', 'MLLr874013', 'MLLr870684', 'MLLr878516')){
+for(sampleName in c('PAYWKL', 'PAYYNY', 'PAYSBA', 'PAYKGI', 'PAYZWN ')){
   chimera.file = paste0('AlignQC/Chimera_Output/', sampleName, '_chimera.bed.gz')
   if(!file.exists(chimera.file)) next 
   dd = fread(chimera.file, skip = 1)
@@ -52,14 +52,14 @@ for(sampleName in c('MLLr876545', 'MLLr877780', 'MLLr874013', 'MLLr870684', 'MLL
 }
 
 ## for ENL ####
-for(sampleName in c('MLLr877476', 'MLLr879583', 'MLLr881823', 'MLLr876533', 'MLLr875703')){
+for(sampleName in c('PAYYBG', 'PAZBSZ', 'PAZFPH', 'PAYWJZ', 'PAYUZJ')){
   chimera.file = paste0('AlignQC/Chimera_Output/', sampleName, '_chimera.bed.gz')
   if(!file.exists(chimera.file)) next 
   dd = fread(chimera.file, skip = 1)
   
   names(dd)[c(1:4, 10)] = c('chr', 'start', 'end', 'readname', 'score')
   dd[, 'len' := end-start]
-  if(sampleName %notin% c('MLLr875703')) dd[, 'chr' := paste0('chr', chr)]
+  if(sampleName %notin% c('PAYUZJ')) dd[, 'chr' := paste0('chr', chr)]
   dd1 = dd[chr == 'chr11' & score >= score.thr]
   dd1 = dd1[(start >= 118481810 & start < 118481830) | (end >= 118481810 & end < 118481830)]
   
@@ -76,7 +76,7 @@ for(sampleName in c('MLLr877476', 'MLLr879583', 'MLLr881823', 'MLLr876533', 'MLL
 }
 
 ## for AF10 ####
-for(sampleName in c( 'MLLr879440', 'MLLr875706')){
+for(sampleName in c( 'PAZBLA', 'PAYUZM')){
   chimera.file = paste0('AlignQC/Chimera_Output/', sampleName, '_chimera.bed.gz')
   if(!file.exists(chimera.file)) next 
   dd = fread(chimera.file, skip = 1)
@@ -99,13 +99,13 @@ for(sampleName in c( 'MLLr879440', 'MLLr875706')){
 }
 
 ## for EPS15 ####
-for(sampleName in c( 'MLLr871427', 'MLLr878289')){
+for(sampleName in c( 'PAYLNH', 'PAYZLC')){
   chimera.file = paste0('AlignQC/Chimera_Output/', sampleName, '_chimera.bed.gz')
   if(!file.exists(chimera.file)) next 
   dd = fread(chimera.file, skip = 1)
   names(dd)[c(1:4, 10)] = c('chr', 'start', 'end', 'readname', 'score')
   dd[, 'len' := end-start]
-  if(sampleName != 'MLLr871427') dd[, 'chr' := paste0('chr', chr)]
+  if(sampleName != 'PAYLNH') dd[, 'chr' := paste0('chr', chr)]
 
   
   dd1 = dd[chr == 'chr11' & score >= score.thr]
@@ -124,7 +124,7 @@ for(sampleName in c( 'MLLr871427', 'MLLr878289')){
 }
 
 ## for PSMF1 ####
-for(sampleName in c( 'MLLr878501')){
+for(sampleName in c( 'PAYZVY')){
   chimera.file = paste0('AlignQC/Chimera_Output/', sampleName, '_chimera.bed.gz')
   if(!file.exists(chimera.file)) next 
   dd = fread(chimera.file, skip = 1)
@@ -173,11 +173,11 @@ for(sampleName in c( 'HD2111_CD34', 'HD2689_Live')){
 
 
 ## for WT ####
-sampleNames = c("MLLr877476", "MLLr879583", "MLLr881823", "MLLr882304",
-                "MLLr876545", "MLLr877780", "MLLr878516", "MLLr875706",
-                "MLLr1154",   "MLLr874013", "MLLr876533", "MLLr879440",
-                "MLLr870684", "MLLr871427", "MLLr875703", "MLLr878289",
-                "MLLr878501", "MLLr879339", "HD2111_CD34", 'HD2689_Live')
+sampleNames = c("PAYWJZ", "PAZGKI", "PAYUZM", "1154",  
+                "PAYKGI", "PAZBSZ", "PAYWKL", "PAYSBA", 
+                "PAZBLA", "PAYZLC", "PAYLNH", "PAYUZJ", 
+                "PAYYBG", "PAZFPH", "PAYYNY", "PAZBGV",
+                "PAYZVY", "PAYZWN ", "HD2111_CD34", 'HD2689_Live')
 
 for(sampleName in sampleNames){
   long.read.file = paste0('AlignQC/Chimera_Output/', sampleName, '_best.sorted.bed.gz')
@@ -191,8 +191,8 @@ for(sampleName in sampleNames){
   
   dd[, 'len' := end-start]
   dd.trans[, 'len' :=end-start]
-  if(sampleName %notin% c('MLLr1154', 'MLLr879440', 'MLLr871427', 'HD2111_CD34',
-                      'HD2689_Live', 'MLLr875703', 'MLLr875706')) {
+  if(sampleName %notin% c('1154', 'PAZBLA', 'PAYLNH', 'HD2111_CD34',
+                      'HD2689_Live', 'PAYUZJ', 'PAYUZM')) {
     dd[, chr := paste0('chr', chr)]
     dd.trans[, chr := paste0('chr', chr)]
   }

@@ -24,12 +24,11 @@ cBind_union_features <- function(mtx_list){
 
 getPalette = colorRampPalette(brewer.pal(12, "Paired"))
 myColors = getPalette(18)
-names(myColors) = c('MLLr876533', 'MLLr882304', 'MLLr875706',
-                    'MLLr1154', 'MLLr870684', 'MLLr879583',
-                    'MLLr876545', 'MLLr874013', 'MLLr879440',
-                    'MLLr878289', 'MLLr871427', 'MLLr875703',
-                    'MLLr877476', 'MLLr881823', 'MLLr877780',
-                    'MLLr879339', 'MLLr878501', 'MLLr878516')
+names(myColors) =  c("PAYWJZ", "PAZGKI", "PAYUZM", "1154",  
+                     "PAYKGI", "PAZBSZ", "PAYWKL", "PAYSBA", 
+                      "PAZBLA", "PAYZLC", "PAYLNH", "PAYUZJ", 
+                      "PAYYBG", "PAZFPH", "PAYYNY", "PAZBGV",
+                      "PAYZVY", "PAYZWN ")
 
 
 ## analyzed pooled 18 MLLr data ####

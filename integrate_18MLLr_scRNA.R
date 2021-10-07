@@ -8,12 +8,11 @@ source('scDataAnalysis_Utilities.R')
 ## integrate by seurat3 ####
 dir0 = 'Seurat_Objects/scRNA'
 
-sampleNames = c('MLLr876533', 'MLLr882304', 'MLLr875706',
-                'MLLr1154', 'MLLr870684', 'MLLr879583',
-                'MLLr876545', 'MLLr874013', 'MLLr879440',
-                'MLLr878289', 'MLLr871427', 'MLLr875703',
-                'MLLr877476', 'MLLr881823', 'MLLr877780',
-                'MLLr879339', 'MLLr878501', 'MLLr878516')
+sampleNames <- c("PAYWJZ", "PAZGKI", "PAYUZM", "1154",  
+                 "PAYKGI", "PAZBSZ", "PAYWKL", "PAYSBA", 
+                  "PAZBLA", "PAYZLC", "PAYLNH", "PAYUZJ", 
+                  "PAYYBG", "PAZFPH", "PAYYNY", "PAZBGV",
+                  "PAYZVY", "PAYZWN ")
 seurat.list = list()
 for(id in sampleNamess){
   seurat.list[[sampleName]] <- readRDS(paste0(dir0, '/seurat_', sampleName.old,
