@@ -38,6 +38,9 @@ Descroption of R codes used in generating manuscript "**Single-cell multiomics r
 - lineage_swithc_example.R  -- analysis of 2 patients whose leukemia underwent lineage switch upon treatment
 - lineage_switch_analysis_updated.R -- overall analysis of lineage switch
 
+## EP prediction and TRN analysis
+- regr_ep_prediction_general.R   -- predict E-P interactions using linear regression
+- construct_netweor_HSPC1_updown.R -- construct TRN for HSPC-like population
 
 ## Long read analysis
 - filter_alignqc_res.R -- filter alignqc result for downstream use
